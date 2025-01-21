@@ -1,0 +1,40 @@
+import java.util.*;
+
+public class PuzzleSolver { static class Student { String name; String language; List problems;
+
+    Student(String name, String language, List<String> problems) {
+        this.name = name;
+        this.language = language;
+        this.problems = problems;
+    }
+
+    @Override
+    public String toString() {
+        return name + " uses " + language + " and solves " + problems;
+    }
+}
+
+public static void main(String[] args) {
+    // Given sets representing discrete structures
+    Set<String> students = new HashSet<>(Arrays.asList("Alice", "Bob", "Charlie", "Dave", "Eve"));
+    Set<String> languages = new HashSet<>(Arrays.asList("Python", "Java", "C++", "Ruby", "Swift"));
+    Set<String> problems = new HashSet<>(Arrays.asList("Math", "Logic", "Sorting", "Graph"));
+
+    List<Student> studentAssignments = new ArrayList<>();
+
+    studentAssignments.add(new Student("Alice", "Python", Arrays.asList("Math")));
+    studentAssignments.add(new Student("Bob", "Java", Arrays.asList("Logic", "Sorting")));
+    studentAssignments.add(new Student("Charlie", "Swift", Arrays.asList("Graph")));
+    studentAssignments.add(new Student("Dave", "C++", Arrays.asList("Math")));
+    studentAssignments.add(new Student("Eve", "Ruby", Arrays.asList("Sorting", "Logic")));
+
+    System.out.println("Student-to-Language Relation:");
+    for (Student student : studentAssignments) {
+        System.out.println(student.name + " -> " + student.language);
+    }
+
+    System.out.println("\nStudent-to-Problem Relation:");
+    for (Student student : studentAssignments) {
+        System.out.println(student.name + " -> " + student.problems);
+    }
+}
